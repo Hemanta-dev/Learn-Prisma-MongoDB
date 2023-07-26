@@ -128,7 +128,13 @@ To launch Prisma Studio, use the following command:
 ```bash
 yarn prisma studio
 ```
-
+## cjs vs mjs
+```bash
+- mjs an extension for EcmaScript modules 
+- An MJS file is a source code file containing an ES Module (ECMAScript Module) for use with a Node.js application.
+- MJS files are written in JavaScript, and may also use the .JS extension outside of the Node.js context.
+- Here, we can use import function rather than the const ... something require .
+```
 Remember to run the appropriate commands whenever you make changes to the schema or want to seed data.
 
 Congratulations! Your project is now set up and ready to use Prisma with MongoDB as the database provider.
