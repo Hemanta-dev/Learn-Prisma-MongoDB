@@ -1,36 +1,13 @@
-const { PrismaClient } = require('@prisma/client');
+const express= require('express');
+const app =express();
 
-const prisma = new PrismaClient()
+const PORT =9000;
 
-async function main() {
-    await prisma.user.create({
-        data: {
-          name: 'Rich',
-          email: 'hello@prisma.com',
-          posts: {
-            create: {
-              title: 'My first post',
-              body: 'Lots of really interesting stuff',
-              slug: 'my-first-post',
-            },
-          },
-        },
-      })
-    
-      const allUsers = await prisma.user.findMany({
-        include: {
-          posts: true,
-        },
-      })
-      console.dir(allUsers, { depth: null })
-    
-}
+app.use(express.json());
 
-main()
-  .catch(async (e) => {
-    console.error(e)
-    process.exit(1)
-  })
-  .finally(async () => {
-    await prisma.$disconnect()
-  })
+//router connection
+app.use(require('./router/auth'));
+
+app.listen(PORT,()=>{
+    console.log(`server is running at http://localhost:${PORT}`);
+})
