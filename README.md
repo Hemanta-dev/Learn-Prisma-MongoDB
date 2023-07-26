@@ -104,7 +104,7 @@ Add the following script to the `package.json` file to execute the seed script e
 Apply the changes to the database by running the Prisma migration command:
 
 ```bash
-yarn prisma migrate
+yarn prisma generate
 ```
 
 ### Step 8: Launch Prisma Studio
